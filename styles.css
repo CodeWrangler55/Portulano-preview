@@ -122,6 +122,10 @@ main {
   align-items: center;
   gap: clamp(2rem, 5vw, 5rem);
   padding: clamp(2.5rem, 6vw, 6.5rem) clamp(1rem, 5vw, 5rem) clamp(3.5rem, 7vw, 7rem);
+  background:
+    linear-gradient(90deg, rgba(2, 5, 11, 0.88) 0%, rgba(2, 5, 11, 0.58) 42%, rgba(2, 5, 11, 0.18) 100%),
+    linear-gradient(0deg, rgba(2, 5, 11, 0.92) 0%, rgba(2, 5, 11, 0.04) 34%),
+    url("./assets/sail-hero-bow.jpg") center / cover;
 }
 
 .hero::after {
@@ -137,6 +141,18 @@ main {
     linear-gradient(90deg, transparent 49.85%, rgba(224, 192, 122, 0.18) 50%, transparent 50.15%),
     linear-gradient(0deg, transparent 49.85%, rgba(224, 192, 122, 0.18) 50%, transparent 50.15%);
   opacity: 0.55;
+}
+
+.hero::before {
+  position: absolute;
+  inset: 0;
+  content: "";
+  background:
+    linear-gradient(90deg, rgba(224, 192, 122, 0.11) 1px, transparent 1px),
+    linear-gradient(rgba(224, 192, 122, 0.09) 1px, transparent 1px);
+  background-size: 8.5rem 8.5rem;
+  mask-image: linear-gradient(90deg, black, transparent 66%);
+  opacity: 0.38;
 }
 
 .hero-copy,
@@ -164,10 +180,11 @@ h3 {
 }
 
 h1 {
-  max-width: 10ch;
+  max-width: 8ch;
   color: #fff9ea;
-  font-size: clamp(4.2rem, 9.7vw, 9.6rem);
+  font-size: clamp(4.8rem, 10.5vw, 10.7rem);
   line-height: 0.88;
+  text-shadow: 0 1rem 4rem rgba(0, 0, 0, 0.72);
 }
 
 h2 {
@@ -225,6 +242,7 @@ h3 {
 
 .hero-stage {
   min-height: min(42rem, 70vw);
+  align-self: end;
 }
 
 .hero-shirt {
@@ -235,13 +253,13 @@ h3 {
 .hero-shirt-back {
   right: clamp(0rem, 3vw, 4rem);
   bottom: -1rem;
-  width: min(39rem, 72%);
+  width: min(34rem, 64%);
 }
 
 .hero-shirt-front {
   left: 0;
-  bottom: 2.5rem;
-  width: min(25rem, 45%);
+  bottom: 1.5rem;
+  width: min(23rem, 42%);
   transform: rotate(-4deg);
 }
 
@@ -258,11 +276,55 @@ h3 {
 }
 
 .story-section,
+.cinema-section,
 .craft-section,
 .gallery-section,
 .buy-section {
   padding: clamp(3.5rem, 7vw, 7rem) clamp(1rem, 5vw, 5rem);
   border-top: 1px solid var(--line-light);
+}
+
+.cinema-section {
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(14rem, 0.52fr);
+  grid-template-areas:
+    "wide portrait"
+    "copy portrait";
+  gap: 1rem;
+  background:
+    linear-gradient(180deg, rgba(3, 8, 18, 0.98), rgba(12, 32, 52, 0.92));
+}
+
+.cinema-wide,
+.cinema-portrait {
+  margin: 0;
+  overflow: hidden;
+  border: 1px solid rgba(224, 192, 122, 0.24);
+  background: #050911;
+}
+
+.cinema-wide {
+  grid-area: wide;
+  min-height: clamp(19rem, 42vw, 34rem);
+}
+
+.cinema-portrait {
+  grid-area: portrait;
+  min-height: 100%;
+}
+
+.cinema-wide img,
+.cinema-portrait img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.cinema-copy {
+  grid-area: copy;
+  align-self: end;
+  max-width: 58rem;
+  padding: clamp(1.2rem, 3vw, 2rem) 0 0;
 }
 
 .story-section {
@@ -389,6 +451,10 @@ h3 {
   grid-column: span 2;
 }
 
+.gallery-item.scene {
+  min-height: 24rem;
+}
+
 .gallery-item img {
   width: 100%;
   height: 100%;
@@ -396,6 +462,12 @@ h3 {
   padding: 1.1rem;
   background: #fff;
   transition: transform 220ms ease;
+}
+
+.gallery-item.scene img {
+  object-fit: cover;
+  padding: 0;
+  background: #050911;
 }
 
 .gallery-item:hover img {
@@ -423,8 +495,8 @@ h3 {
   gap: 2rem;
   min-height: 26rem;
   background:
-    linear-gradient(90deg, rgba(3, 8, 18, 0.92), rgba(3, 8, 18, 0.54)),
-    url("./assets/atocha-back.jpg") center 45% / cover;
+    linear-gradient(90deg, rgba(3, 8, 18, 0.94), rgba(3, 8, 18, 0.4)),
+    url("./assets/sail-bow-sunset.jpg") center / cover;
 }
 
 .buy-section p {
@@ -437,8 +509,20 @@ h3 {
 @media (max-width: 960px) {
   .hero,
   .story-grid,
+  .cinema-section,
   .craft-section {
     grid-template-columns: 1fr;
+  }
+
+  .cinema-section {
+    grid-template-areas:
+      "wide"
+      "copy"
+      "portrait";
+  }
+
+  .cinema-portrait {
+    min-height: 34rem;
   }
 
   .hero {
