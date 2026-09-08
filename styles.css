@@ -609,7 +609,7 @@ h3 {
 
 .size-options {
   display: grid;
-  grid-template-columns: repeat(5, minmax(0, 1fr));
+  grid-template-columns: repeat(6, minmax(0, 1fr));
   gap: 0.55rem;
 }
 
@@ -653,6 +653,33 @@ h3 {
   color: var(--bright-gold);
   font-family: Georgia, "Times New Roman", serif;
   font-size: clamp(2rem, 4vw, 2.8rem);
+}
+
+.shipping-summary {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 0.3rem 1rem;
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(224, 192, 122, 0.24);
+  color: rgba(247, 240, 223, 0.84);
+}
+
+.shipping-summary strong {
+  color: var(--bright-gold);
+}
+
+.shipping-summary small {
+  grid-column: 1 / -1;
+  color: rgba(247, 240, 223, 0.62);
+  line-height: 1.45;
+}
+
+.checkout-total {
+  margin: 0.7rem 0 0;
+  color: rgba(247, 240, 223, 0.72);
+  font-size: 0.94rem;
+  line-height: 1.45;
 }
 
 .checkout-note {
