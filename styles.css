@@ -307,7 +307,10 @@ h3 {
   margin: 0;
   padding: clamp(0.7rem, 2vw, 1rem);
   border: 1px solid rgba(7, 16, 28, 0.24);
-  background: #fff;
+  background:
+    linear-gradient(145deg, rgba(247, 240, 223, 0.92), rgba(196, 171, 121, 0.42)),
+    radial-gradient(circle at 50% 18%, rgba(255, 249, 234, 0.64), transparent 22rem),
+    #c9b17a;
   box-shadow: 0 1.4rem 2.5rem rgba(7, 16, 28, 0.18);
 }
 
@@ -323,6 +326,7 @@ h3 {
   width: 100%;
   aspect-ratio: 1;
   object-fit: contain;
+  filter: drop-shadow(0 1.2rem 1.5rem rgba(7, 16, 28, 0.32));
 }
 
 .artifact-plate figcaption {
@@ -423,20 +427,30 @@ h3 {
 .craft-image {
   position: relative;
   min-height: 38rem;
+  display: grid;
+  align-items: center;
+  justify-items: center;
+  overflow: hidden;
+  border: 1px solid rgba(7, 16, 28, 0.16);
+  background:
+    radial-gradient(circle at 50% 24%, rgba(247, 240, 223, 0.22), transparent 18rem),
+    linear-gradient(145deg, #07101c 0%, #0c2034 58%, #4a1d23 100%);
 }
 
 .craft-image::before {
   position: absolute;
-  inset: 4rem 12% 2rem;
-  border: 1px solid rgba(7, 16, 28, 0.2);
+  inset: 3rem 11% 2.5rem;
+  border: 1px solid rgba(224, 192, 122, 0.24);
   content: "";
 }
 
 .craft-image img {
   position: relative;
-  width: min(24rem, 84%);
+  width: auto;
+  max-width: 74%;
+  max-height: 34rem;
   margin: 0 auto;
-  filter: drop-shadow(0 2rem 2rem rgba(7, 16, 28, 0.26));
+  filter: drop-shadow(0 2rem 2rem rgba(0, 0, 0, 0.42));
 }
 
 .feature-list {
@@ -479,22 +493,26 @@ h3 {
 .gallery-grid {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-auto-rows: clamp(18rem, 26vw, 29rem);
   grid-auto-flow: dense;
   gap: 1rem;
 }
 
 .gallery-item {
   position: relative;
-  min-height: 22rem;
+  display: grid;
+  min-height: 0;
+  place-items: center;
   margin: 0;
   overflow: hidden;
   border: 1px solid rgba(224, 192, 122, 0.18);
-  background: #fff;
+  background:
+    radial-gradient(circle at 50% 24%, rgba(247, 240, 223, 0.18), transparent 18rem),
+    linear-gradient(145deg, #07101c, #102a42 62%, #4f2226);
 }
 
 .gallery-item.tall {
   grid-row: span 2;
-  min-height: 45rem;
 }
 
 .gallery-item.wide {
@@ -502,22 +520,27 @@ h3 {
 }
 
 .gallery-item.scene {
-  min-height: 24rem;
+  min-height: 0;
 }
 
 .gallery-item img {
-  width: 100%;
-  height: 100%;
+  width: auto;
+  height: auto;
+  max-width: calc(100% - 2.2rem);
+  max-height: calc(100% - 2.2rem);
   object-fit: contain;
-  padding: 1.1rem;
-  background: #fff;
+  filter: drop-shadow(0 1.25rem 1.25rem rgba(0, 0, 0, 0.36));
   transition: transform 220ms ease;
 }
 
 .gallery-item.scene img {
+  width: 100%;
+  height: 100%;
+  max-width: none;
+  max-height: none;
   object-fit: cover;
-  padding: 0;
   background: #050911;
+  filter: none;
 }
 
 .gallery-item:hover img {
@@ -642,6 +665,7 @@ h3 {
 
   .gallery-grid {
     grid-template-columns: 1fr;
+    grid-auto-rows: minmax(28rem, auto);
   }
 
   .gallery-item,
