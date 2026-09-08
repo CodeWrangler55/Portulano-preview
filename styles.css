@@ -641,6 +641,30 @@ h3 {
   background: linear-gradient(135deg, #f2d98e, var(--gold));
 }
 
+.shipping-state {
+  display: grid;
+  gap: 0.45rem;
+  margin-top: 1rem;
+  color: rgba(247, 240, 223, 0.84);
+  font-weight: 800;
+}
+
+.shipping-state select {
+  min-height: 3rem;
+  border: 1px solid rgba(224, 192, 122, 0.42);
+  border-radius: 4px;
+  color: var(--bone);
+  background: #07101c;
+  font: inherit;
+  padding: 0 0.8rem;
+}
+
+.shipping-state select:focus {
+  border-color: var(--bright-gold);
+  outline: 2px solid rgba(224, 192, 122, 0.24);
+  outline-offset: 2px;
+}
+
 .checkout-row {
   display: flex;
   align-items: center;

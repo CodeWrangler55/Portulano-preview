@@ -45,11 +45,17 @@
 
     const formData = new FormData(form);
     const size = formData.get("size");
+    const shippingState = formData.get("shippingState");
     const submit = form.querySelector("button[type='submit']");
     const endpoint = window.PORTULANO_CHECKOUT_ENDPOINT || "/api/create-checkout-session";
 
     if (!size) {
       setMessage("Choose a shirt size before checkout.", true);
+      return;
+    }
+
+    if (!shippingState) {
+      setMessage("Choose a shipping state before checkout.", true);
       return;
     }
 
@@ -62,7 +68,7 @@
         headers: {
           "Content-Type": "application/json"
         },
-        body: JSON.stringify({ size })
+        body: JSON.stringify({ size, shippingState })
       });
 
       const payload = await response.json().catch(() => ({}));
