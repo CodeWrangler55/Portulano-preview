@@ -7,7 +7,7 @@
       name="description"
       content="Portulano resort shirts pair antique charts, old routes, and Age of Sail artwork with easy coastal silhouettes."
     >
-    <title>Portulano | Nuestra Senora de Atocha Shirt</title>
+    <title>Portulano | Nuestra Señora de Atocha Shirt</title>
     <link rel="stylesheet" href="./styles.css">
   </head>
   <body>
@@ -20,7 +20,7 @@
         <a href="#story">Story</a>
         <a href="#craft">Details</a>
         <a href="#gallery">Gallery</a>
-        <a class="nav-buy" href="https://portulano.printful.me/product/nuestra-senora-de-atocha">Shop</a>
+        <a class="nav-buy" href="#buy">Shop</a>
       </nav>
     </header>
 
@@ -35,7 +35,7 @@
             water.
           </p>
           <div class="hero-actions">
-            <a class="button primary" href="https://portulano.printful.me/product/nuestra-senora-de-atocha">View the shirt</a>
+            <a class="button primary" href="#buy">Select a size</a>
             <a class="button secondary" href="#gallery">See the details</a>
           </div>
         </div>
@@ -53,13 +53,13 @@
             the water.
           </p>
         </div>
-        <div class="artifact-plates" aria-label="Nuestra Senora de Atocha shirt views">
+        <div class="artifact-plates" aria-label="Nuestra Señora de Atocha shirt views">
           <figure class="artifact-plate front">
-            <img src="./assets/atocha-front-cutout.png" alt="Front of the Portulano Nuestra Senora de Atocha shirt with antique map and ship artwork">
+            <img src="./assets/atocha-front-cutout.png" alt="Front of the Portulano Nuestra Señora de Atocha shirt with antique map and ship artwork">
             <figcaption>Front chart</figcaption>
           </figure>
           <figure class="artifact-plate back">
-            <img src="./assets/atocha-back-cutout.png" alt="Back of the Portulano Nuestra Senora de Atocha shirt with galleon and cartouche artwork">
+            <img src="./assets/atocha-back-cutout.png" alt="Back of the Portulano Nuestra Señora de Atocha shirt with galleon and cartouche artwork">
             <figcaption>Back legend</figcaption>
           </figure>
         </div>
@@ -76,7 +76,7 @@
               on maps.
             </p>
             <p>
-              Nuestra Senora de Atocha carries that world in parchment tones,
+              Nuestra Señora de Atocha carries that world in parchment tones,
               deep maritime blue, aged ornament, and galleon artwork with the
               character of something found in a captain's chest.
             </p>
@@ -160,14 +160,33 @@
       <section id="buy" class="buy-section">
         <div>
           <p class="eyebrow">Maritime resort wear</p>
-          <h2>Nuestra Senora de Atocha</h2>
+          <h2>Nuestra Señora de Atocha</h2>
           <p>
             For evenings near the water, old ports, resort bars, and wardrobes
             that make room for a little horizon.
           </p>
         </div>
-        <a class="button primary large" href="https://portulano.printful.me/product/nuestra-senora-de-atocha">Open product page</a>
+        <form class="checkout-panel" id="checkout-form">
+          <fieldset>
+            <legend>Choose a size</legend>
+            <div class="size-options" aria-label="Shirt size">
+              <label><input type="radio" name="size" value="S" required><span>S</span></label>
+              <label><input type="radio" name="size" value="M"><span>M</span></label>
+              <label><input type="radio" name="size" value="L"><span>L</span></label>
+              <label><input type="radio" name="size" value="XL"><span>XL</span></label>
+              <label><input type="radio" name="size" value="XXL"><span>XXL</span></label>
+            </div>
+          </fieldset>
+          <div class="checkout-row">
+            <span class="price">$79</span>
+            <button class="button primary large" type="submit">Continue to checkout</button>
+          </div>
+          <p class="checkout-note" id="checkout-message" aria-live="polite">
+            Secure checkout by Stripe. Email and shipping are collected there.
+          </p>
+        </form>
       </section>
     </main>
+    <script src="./checkout.js"></script>
   </body>
 </html>

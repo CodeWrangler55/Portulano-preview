@@ -211,6 +211,7 @@ h3 {
 }
 
 .button {
+  cursor: pointer;
   display: inline-flex;
   min-height: 3.15rem;
   align-items: center;
@@ -220,6 +221,12 @@ h3 {
   border-radius: 4px;
   font-weight: 800;
   text-decoration: none;
+}
+
+.button:disabled {
+  cursor: wait;
+  filter: grayscale(0.25);
+  opacity: 0.62;
 }
 
 .button.primary {
@@ -579,6 +586,109 @@ h3 {
   line-height: 1.7;
 }
 
+.checkout-panel {
+  width: min(100%, 31rem);
+  padding: clamp(1rem, 3vw, 1.5rem);
+  border: 1px solid rgba(224, 192, 122, 0.36);
+  background: rgba(3, 8, 18, 0.78);
+  box-shadow: var(--shadow-heavy);
+}
+
+.checkout-panel fieldset {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+.checkout-panel legend {
+  margin-bottom: 0.9rem;
+  color: var(--bone);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 1.2rem;
+}
+
+.size-options {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 0.55rem;
+}
+
+.size-options label {
+  cursor: pointer;
+}
+
+.size-options input {
+  position: absolute;
+  inline-size: 1px;
+  block-size: 1px;
+  opacity: 0;
+}
+
+.size-options span {
+  display: grid;
+  min-height: 3rem;
+  place-items: center;
+  border: 1px solid rgba(224, 192, 122, 0.42);
+  color: var(--bone);
+  background: rgba(247, 240, 223, 0.08);
+  font-weight: 900;
+}
+
+.size-options input:checked + span,
+.size-options input:focus-visible + span {
+  border-color: var(--bright-gold);
+  color: #07101c;
+  background: linear-gradient(135deg, #f2d98e, var(--gold));
+}
+
+.checkout-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-top: 1.15rem;
+}
+
+.price {
+  color: var(--bright-gold);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(2rem, 4vw, 2.8rem);
+}
+
+.checkout-note {
+  min-height: 1.6rem;
+  margin: 0.9rem 0 0;
+  color: rgba(247, 240, 223, 0.72);
+  font-size: 0.94rem;
+  line-height: 1.45;
+}
+
+.checkout-note[data-state="error"] {
+  color: #f2b8a8;
+}
+
+.status-section {
+  display: grid;
+  min-height: 100vh;
+  align-content: center;
+  gap: 1rem;
+  padding: clamp(8rem, 14vw, 13rem) clamp(1rem, 5vw, 5rem);
+  background:
+    linear-gradient(90deg, rgba(3, 8, 18, 0.94), rgba(3, 8, 18, 0.44)),
+    url("./assets/sail-bow-sunset.jpg") center / cover;
+}
+
+.status-section h1,
+.status-section p {
+  max-width: 44rem;
+}
+
+.status-section p {
+  color: rgba(247, 240, 223, 0.78);
+  font-size: 1.1rem;
+  line-height: 1.7;
+}
+
 @media (max-width: 960px) {
   .story-grid,
   .artifact-section,
@@ -609,6 +719,10 @@ h3 {
   .buy-section {
     align-items: flex-start;
     flex-direction: column;
+  }
+
+  .checkout-panel {
+    width: 100%;
   }
 }
 
@@ -655,8 +769,18 @@ h3 {
   }
 
   .hero-actions,
-  .button {
+  .button,
+  .checkout-row {
     width: 100%;
+  }
+
+  .checkout-row {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .size-options {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 
   .craft-image {
