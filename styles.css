@@ -586,6 +586,31 @@ h3 {
   line-height: 1.7;
 }
 
+.trust-panel {
+  display: grid;
+  gap: 0.7rem;
+  max-width: 36rem;
+  margin-top: 1.5rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid rgba(224, 192, 122, 0.28);
+  color: rgba(247, 240, 223, 0.74);
+}
+
+.trust-panel a {
+  color: var(--bright-gold);
+  font-weight: 800;
+  text-decoration: none;
+}
+
+.trust-panel a:hover {
+  color: #fff;
+}
+
+.trust-panel span {
+  max-width: 32rem;
+  line-height: 1.55;
+}
+
 .checkout-panel {
   width: min(100%, 31rem);
   padding: clamp(1rem, 3vw, 1.5rem);
@@ -718,6 +743,99 @@ h3 {
   color: #f2b8a8;
 }
 
+.info-page {
+  min-height: calc(100vh - 4rem);
+  padding: clamp(4.5rem, 9vw, 8rem) clamp(1rem, 6vw, 5rem);
+}
+
+.info-hero {
+  max-width: 58rem;
+  margin-bottom: clamp(2.5rem, 6vw, 4.5rem);
+}
+
+.info-hero p {
+  max-width: 48rem;
+  color: rgba(247, 240, 223, 0.76);
+  font-size: 1.1rem;
+  line-height: 1.75;
+}
+
+.info-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.info-card {
+  border: 1px solid rgba(224, 192, 122, 0.24);
+  background: rgba(3, 8, 18, 0.62);
+  padding: clamp(1rem, 2.6vw, 1.6rem);
+}
+
+.info-card h2,
+.info-card h3 {
+  margin-top: 0;
+}
+
+.info-card p,
+.info-card li {
+  color: rgba(247, 240, 223, 0.74);
+  line-height: 1.65;
+}
+
+.info-card ul {
+  padding-left: 1.1rem;
+}
+
+.info-card.wide {
+  grid-column: 1 / -1;
+}
+
+.size-table {
+  width: 100%;
+  border-collapse: collapse;
+  color: rgba(247, 240, 223, 0.78);
+  font-size: 0.92rem;
+}
+
+.size-table caption {
+  margin-bottom: 0.7rem;
+  color: var(--bone);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 1.1rem;
+  text-align: left;
+}
+
+.size-table th,
+.size-table td {
+  padding: 0.7rem 0.6rem;
+  border-bottom: 1px solid rgba(224, 192, 122, 0.18);
+  text-align: left;
+}
+
+.size-table th {
+  color: var(--bright-gold);
+  font-weight: 900;
+}
+
+.policy-list {
+  display: grid;
+  gap: 1rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.policy-list li {
+  padding-bottom: 1rem;
+  border-bottom: 1px solid rgba(224, 192, 122, 0.18);
+}
+
+.policy-list li:last-child {
+  padding-bottom: 0;
+  border-bottom: 0;
+}
+
 .status-section {
   display: grid;
   min-height: 100vh;
@@ -774,6 +892,10 @@ h3 {
 
   .checkout-panel {
     width: 100%;
+  }
+
+  .info-grid {
+    grid-template-columns: 1fr;
   }
 }
 
