@@ -744,8 +744,50 @@ h3 {
 }
 
 .info-page {
+  position: relative;
+  isolation: isolate;
   min-height: calc(100vh - 4rem);
   padding: clamp(4.5rem, 9vw, 8rem) clamp(1rem, 6vw, 5rem);
+  overflow: hidden;
+  background:
+    linear-gradient(120deg, rgba(3, 8, 18, 0.9), rgba(3, 8, 18, 0.72) 46%, rgba(12, 32, 52, 0.56)),
+    url("./assets/sail-panel-collage.jpg") center / cover;
+}
+
+.info-page::before,
+.info-page::after {
+  position: absolute;
+  z-index: -1;
+  pointer-events: none;
+  content: "";
+}
+
+.info-page::before {
+  inset: 0;
+  background:
+    linear-gradient(90deg, rgba(224, 192, 122, 0.09) 1px, transparent 1px),
+    linear-gradient(rgba(224, 192, 122, 0.08) 1px, transparent 1px);
+  background-size: 5.5rem 5.5rem;
+  mask-image: linear-gradient(90deg, transparent, #000 18%, #000 82%, transparent);
+}
+
+.info-page::after {
+  right: clamp(-10rem, -12vw, -4rem);
+  bottom: clamp(2rem, 7vw, 5rem);
+  width: min(38vw, 28rem);
+  aspect-ratio: 4 / 5;
+  border: 1px solid rgba(224, 192, 122, 0.18);
+  background:
+    linear-gradient(rgba(3, 8, 18, 0.16), rgba(3, 8, 18, 0.34)),
+    url("./assets/atocha-front-cutout.png") center bottom / contain no-repeat,
+    radial-gradient(circle at 50% 42%, rgba(224, 192, 122, 0.16), transparent 60%);
+  opacity: 0.72;
+}
+
+.shipping-page::after {
+  background:
+    linear-gradient(rgba(3, 8, 18, 0.1), rgba(3, 8, 18, 0.36)),
+    url("./assets/sail-bow-portrait.jpg") center / cover;
 }
 
 .info-hero {
@@ -768,7 +810,9 @@ h3 {
 
 .info-card {
   border: 1px solid rgba(224, 192, 122, 0.24);
-  background: rgba(3, 8, 18, 0.62);
+  background: rgba(3, 8, 18, 0.74);
+  box-shadow: 0 1.5rem 4rem rgba(0, 0, 0, 0.22);
+  backdrop-filter: blur(8px);
   padding: clamp(1rem, 2.6vw, 1.6rem);
 }
 
@@ -858,6 +902,49 @@ h3 {
   line-height: 1.7;
 }
 
+.site-footer {
+  display: grid;
+  grid-template-columns: minmax(16rem, 1.15fr) minmax(14rem, 0.85fr) minmax(15rem, 1fr);
+  gap: clamp(1.5rem, 4vw, 3rem);
+  padding: clamp(2rem, 5vw, 4rem) clamp(1rem, 5vw, 4rem);
+  border-top: 1px solid rgba(224, 192, 122, 0.24);
+  background:
+    linear-gradient(90deg, rgba(3, 8, 18, 0.96), rgba(7, 16, 28, 0.9)),
+    url("./assets/sail-hull-starboard.jpg") center / cover;
+}
+
+.footer-brand p,
+.footer-note {
+  color: rgba(247, 240, 223, 0.68);
+  line-height: 1.65;
+}
+
+.footer-brand p {
+  max-width: 28rem;
+  margin: 1rem 0 0;
+}
+
+.footer-nav,
+.footer-note {
+  display: grid;
+  align-content: start;
+  gap: 0.7rem;
+}
+
+.footer-nav a {
+  color: rgba(247, 240, 223, 0.8);
+  font-weight: 800;
+  text-decoration: none;
+}
+
+.footer-nav a:hover {
+  color: var(--bright-gold);
+}
+
+.footer-note {
+  font-size: 0.92rem;
+}
+
 @media (max-width: 960px) {
   .story-grid,
   .artifact-section,
@@ -895,6 +982,15 @@ h3 {
   }
 
   .info-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .info-page::after {
+    width: 18rem;
+    opacity: 0.28;
+  }
+
+  .site-footer {
     grid-template-columns: 1fr;
   }
 }
