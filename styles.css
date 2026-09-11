@@ -258,6 +258,7 @@ h3 {
 }
 
 .story-section,
+.ship-history-section,
 .artifact-section,
 .cinema-section,
 .craft-section,
@@ -409,6 +410,45 @@ h3 {
 
 .story-copy p {
   margin: 0 0 1.2rem;
+}
+
+.ship-history-section {
+  position: relative;
+  overflow: hidden;
+  background:
+    linear-gradient(90deg, rgba(3, 8, 18, 0.94), rgba(3, 8, 18, 0.68) 54%, rgba(12, 32, 52, 0.34)),
+    url("./assets/sail-panel-collage.jpg") center / cover;
+}
+
+.ship-history-section::after {
+  position: absolute;
+  right: clamp(1rem, 5vw, 4rem);
+  bottom: clamp(1rem, 5vw, 4rem);
+  width: min(32vw, 22rem);
+  aspect-ratio: 1;
+  border: 1px solid rgba(224, 192, 122, 0.2);
+  background:
+    linear-gradient(rgba(3, 8, 18, 0.12), rgba(3, 8, 18, 0.32)),
+    url("./assets/portulano-compass.jpg") center / cover;
+  box-shadow: var(--shadow-heavy);
+  content: "";
+  opacity: 0.28;
+}
+
+.ship-history-copy {
+  position: relative;
+  z-index: 1;
+  max-width: 56rem;
+  padding: clamp(1rem, 2.5vw, 2rem);
+  border-left: 1px solid rgba(224, 192, 122, 0.34);
+  background: linear-gradient(90deg, rgba(3, 8, 18, 0.48), rgba(3, 8, 18, 0));
+}
+
+.ship-history-copy p:not(.section-label) {
+  max-width: 49rem;
+  color: rgba(247, 240, 223, 0.78);
+  font-size: 1.08rem;
+  line-height: 1.85;
 }
 
 .craft-section {
